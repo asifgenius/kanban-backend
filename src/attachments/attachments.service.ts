@@ -24,7 +24,6 @@ const getAttachmentCountByTasks = async () => {
       }
     }
   ]);
-  
 }
 
 export {
