@@ -15,7 +15,20 @@ const getAttachmentCountByTaskId = async (taskId: string) => {
   });
 }
 
+const getAttachmentCountByTasks = async () => {
+  return await Attachment.aggregate([
+    {
+      $group: {
+        _id: '$taskId',
+        count: { $sum: 1 }
+      }
+    }
+  ]);
+  
+}
+
 export {
   addAttachment,
-  getAttachmentCountByTaskId
+  getAttachmentCountByTaskId,
+  getAttachmentCountByTasks
 };
